@@ -10,7 +10,7 @@ module.exports = {
     // Returns a room JSON object with the given 'name'
     // Returns 'null', if it can't be found
     findMeetingRoom: function (name) {
-        if (name === null)
+        if (name === null || name === undefined)
             return null;
 
         name = name.toLowerCase().trim();

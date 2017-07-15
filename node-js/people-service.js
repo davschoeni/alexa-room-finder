@@ -10,9 +10,9 @@ module.exports = {
     // Returns a person JSON object with ('firstName') and 'lastName'
     // Returns 'null', if it can't be found
     findPerson: function (firstName, lastName) {
-        if (firstName !== null)
+        if (firstName !== null && firstName !== undefined)
             firstName = firstName.toLowerCase().trim();
-        if (lastName !== null)
+        if (lastName !== null && firstName !== undefined)
             lastName = lastName.toLowerCase().trim();
 
         var foundPerson = null;

@@ -15,7 +15,12 @@
     {
       "name": "FindMeetingRoomIntent",
       "samples": [
-        "Where is the meeting room {MeetingRoom}"
+        "Where is the meeting room {MeetingRoom}",
+        "Where is the room {MeetingRoom}",
+        "Where can i find the meeting room {MeetingRoom}",
+        "Where can i find the room {MeetingRoom}",
+        "meeting room {MeetingRoom}",
+        "room {MeetingRoom}"
       ],
       "slots": [
         {
@@ -28,7 +33,11 @@
     {
       "name": "FindPersonIntent",
       "samples": [
-        "Where is {FirstName} {LastName}"
+        "Where is {FirstName} {LastName}",
+        "Where can I find {FirstName} {LastName}",
+        "Where sits {FirstName} {LastName}",
+        "Which room is {FirstName} {LastName} in",
+        "{FirstName} {LastName}"
       ],
       "slots": [
         {

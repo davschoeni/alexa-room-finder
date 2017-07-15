@@ -6,27 +6,37 @@ const PeopleService = require('people-service');
 
 const APP_ID = "amzn1.ask.skill.090d8e67-291a-4a37-999c-d38970ab54f5";
 
+const placeholders = {
+    NAME: "%NAME%",
+    NUMBER: "%NUMBER%",
+    FLOOR: "%FLOOR%",
+    FIRSTNAME: "%FIRSTNAME%",
+    LASTNAME: "%LASTNAME%"
+};
+
 const languageStrings = {
     'en': {
         translation: {
-            GREETING: 'Hi!',
-            HELP: 'Try saying: "Where is David Schöninger?" or "Where is the meeting room Terra?"',
+            GREETING: 'How can I help?',
+            HELP: 'Try saying: "Where is Frank Williams?" or "Where is the meeting room Aqua?"',
+            REPEAT: 'Please repeat!',
             STOP: 'Goodbye!',
             ROOM_NOT_FOUND: "Sorry, I couldn't find the room you are looking for!",
-            MEETING_ROOM_RESPONSE: "The room %NAME% is on floor number %FLOOR% and has the room number %NUMBER%",
+            MEETING_ROOM_RESPONSE: "The room " + placeholders.NAME + " is on floor number " + placeholders.FLOOR + " and has the room number " + placeholders.NUMBER + ".",
             PERSON_NOT_FOUND: "Sorry, I couldn't find that person!",
-            PERSON_RESPONSE: "%FIRSTNAME% %LASTNAME% is on floor number %FLOOR% in room %NUMBER%"
+            PERSON_RESPONSE: placeholders.FIRSTNAME + " " + placeholders.LASTNAME + " is on floor number " + placeholders.FLOOR + " in room " + placeholders.NUMBER + "."
         }
     },
     'de': {
         translation: {
-            GREETING: 'Hallo!',
+            GREETING: 'Hallo! Wie kann ich helfen?',
             HELP: 'Versuche es mit: "Wo ist David Schöninger?" oder "Wo ist der Besprechungsraum Terra?"',
+            REPEAT: 'Bitte wiederhole!',
             STOP: 'Auf Wiedersehen!',
             ROOM_NOT_FOUND: "Entschuldige, ich konnte den Raum nicht finden.",
-            MEETING_ROOM_RESPONSE: "Der Raum %NAME% ist im Stockwerk %FLOOR% und hat die Raumnummer %NUMBER%",
+            MEETING_ROOM_RESPONSE: "Der Raum " + placeholders.NAME + " ist im Stockwerk " + placeholders.FLOOR + " und hat die Raumnummer " + placeholders.NUMBER + ".",
             PERSON_NOT_FOUND: "Entschuldige, ich konnte die gesuchte Person nicht finden!",
-            PERSON_RESPONSE: "%FIRSTNAME% %LASTNAME% ist im Stockwerk %FLOOR% im Raum %NUMBER%"
+            PERSON_RESPONSE: placeholders.FIRSTNAME + " " + placeholders.LASTNAME + " ist im Stockwerk " + placeholders.FLOOR + " im Raum " + placeholders.NUMBER + "."
         }
     }
 };
@@ -42,7 +52,7 @@ exports.handler = function (event, context) {
 
 const handlers = {
     'LaunchRequest': function () {
-        this.emit(':tell', this.t('GREETING'));
+        this.emit(':ask', this.t('GREETING'));
     },
     'AMAZON.HelpIntent': function () {
         const speechOutput = this.t('HELP');
@@ -59,13 +69,13 @@ const handlers = {
         var roomName = this.event.request.intent.slots.MeetingRoom.value;
         var room = MeetingRoomService.findMeetingRoom(roomName);
         if(room === null) {
-            this.emit(':tell', this.t('ROOM_NOT_FOUND'));
+            this.emit(':ask', this.t('ROOM_NOT_FOUND') + " " + this.t('REPEAT'));
         } else {
             var response = this.t('MEETING_ROOM_RESPONSE');
-            response = response.replace('%NAME%', room.name);
-            response = response.replace('%FLOOR%', room.floor);
-            response = response.replace('%NUMBER%', room.number);
-            this.emit(':tell', response);
+            response = response.replace(placeholders.NAME, room.name);
+            response = response.replace(placeholders.FLOOR, room.floor);
+            response = response.replace(placeholders.NUMBER, room.number);
+            this.emit(':ask', response + " " + this.t('GREETING'));
         }
     },
     'FindPersonIntent': function() {
@@ -73,14 +83,14 @@ const handlers = {
         var lastName = this.event.request.intent.slots.LastName.value;
         var person = PeopleService.findPerson(firstName, lastName);
         if(person === null) {
-            this.emit(':tell', this.t('PERSON_NOT_FOUND'));
+            this.emit(':ask', this.t('PERSON_NOT_FOUND') + " " + this.t('REPEAT'));
         } else {
             var response = this.t('PERSON_RESPONSE');
-            response = response.replace('%FIRSTNAME%', person.firstName);
-            response = response.replace('%LASTNAME%', person.lastName);
-            response = response.replace('%FLOOR%', person.floor);
-            response = response.replace('%NUMBER%', person.number);
-            this.emit(':tell', response);
+            response = response.replace(placeholders.FIRSTNAME, person.firstName);
+            response = response.replace(placeholders.LASTNAME, person.lastName);
+            response = response.replace(placeholders.FLOOR, person.floor);
+            response = response.replace(placeholders.NUMBER, person.number);
+            this.emit(':ask', response + " " + this.t('GREETING'));
         }
     },
     'Unhandled': function() {
