@@ -18,25 +18,25 @@ const languageStrings = {
     'en': {
         translation: {
             GREETING: 'How can I help?',
-            HELP: 'Try saying: "Where is Frank Williams?" or "Where is the meeting room Aqua?"',
+            HELP: 'Try saying: "Where is Frank Williams?" or "Where is the meeting room Aqua?"!',
             REPEAT: 'Please repeat!',
             STOP: 'Goodbye!',
             ROOM_NOT_FOUND: "Sorry, I couldn't find the room you are looking for!",
-            MEETING_ROOM_RESPONSE: "The room " + placeholders.NAME + " is on floor number " + placeholders.FLOOR + " and has the room number " + placeholders.NUMBER + ".",
+            MEETING_ROOM_RESPONSE: "The room " + placeholders.NAME + " is on floor number " + placeholders.FLOOR + " and has the room number " + placeholders.NUMBER + "!",
             PERSON_NOT_FOUND: "Sorry, I couldn't find that person!",
-            PERSON_RESPONSE: placeholders.FIRSTNAME + " " + placeholders.LASTNAME + " is on floor number " + placeholders.FLOOR + " in room " + placeholders.NUMBER + "."
+            PERSON_RESPONSE: placeholders.FIRSTNAME + " " + placeholders.LASTNAME + " is on floor number " + placeholders.FLOOR + " in room " + placeholders.NUMBER + "!"
         }
     },
     'de': {
         translation: {
-            GREETING: 'Hallo! Wie kann ich helfen?',
-            HELP: 'Versuche es mit: "Wo ist David Schöninger?" oder "Wo ist der Besprechungsraum Terra?"',
+            GREETING: 'Wie kann ich helfen?',
+            HELP: 'Versuche es mit: "Wo ist David Schöninger?" oder "Wo ist der Besprechungsraum Terra?"!',
             REPEAT: 'Bitte wiederhole!',
             STOP: 'Auf Wiedersehen!',
             ROOM_NOT_FOUND: "Entschuldige, ich konnte den Raum nicht finden.",
-            MEETING_ROOM_RESPONSE: "Der Raum " + placeholders.NAME + " ist im Stockwerk " + placeholders.FLOOR + " und hat die Raumnummer " + placeholders.NUMBER + ".",
+            MEETING_ROOM_RESPONSE: "Der Raum " + placeholders.NAME + " ist im " + placeholders.FLOOR + ". Stock und hat die Raumnummer " + placeholders.NUMBER + "!",
             PERSON_NOT_FOUND: "Entschuldige, ich konnte die gesuchte Person nicht finden!",
-            PERSON_RESPONSE: placeholders.FIRSTNAME + " " + placeholders.LASTNAME + " ist im Stockwerk " + placeholders.FLOOR + " im Raum " + placeholders.NUMBER + "."
+            PERSON_RESPONSE: placeholders.FIRSTNAME + " " + placeholders.LASTNAME + " ist im " + placeholders.FLOOR + ". Stock im Raum " + placeholders.NUMBER + "!"
         }
     }
 };

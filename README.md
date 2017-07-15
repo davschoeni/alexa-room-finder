@@ -19,3 +19,7 @@ TODO: Sample Utterances
 ### Interaction Model
 
 The interaction model was created using *Alexa Skill Builder*. The JSON description can be found in this git repository.
+
+## Improvments
+
+* User *ID* column for slots. (e.g. Maria López problem)
