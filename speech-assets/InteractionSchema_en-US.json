@@ -1,0 +1,239 @@
+{
+  "intents": [
+    {
+      "name": "AMAZON.CancelIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.HelpIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.StopIntent",
+      "samples": []
+    },
+    {
+      "name": "FindMeetingRoomIntent",
+      "samples": [
+        "Where is the meeting room {MeetingRoom}"
+      ],
+      "slots": [
+        {
+          "name": "MeetingRoom",
+          "type": "MEETING_ROOMS",
+          "samples": []
+        }
+      ]
+    },
+    {
+      "name": "FindPersonIntent",
+      "samples": [
+        "Where is {FirstName} {LastName}"
+      ],
+      "slots": [
+        {
+          "name": "FirstName",
+          "type": "FIRST_NAMES",
+          "samples": []
+        },
+        {
+          "name": "LastName",
+          "type": "LAST_NAMES",
+          "samples": []
+        }
+      ]
+    }
+  ],
+  "types": [
+    {
+      "name": "FIRST_NAMES",
+      "values": [
+        {
+          "id": null,
+          "name": {
+            "value": "Douglas",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Maria",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Alexander",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Fritz",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Jörg",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Lucía",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "David",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Frank",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Mathew",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Andreas",
+            "synonyms": []
+          }
+        }
+      ]
+    },
+    {
+      "name": "LAST_NAMES",
+      "values": [
+        {
+          "id": null,
+          "name": {
+            "value": "Smith",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Williams",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Jones",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Schöninger",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "López",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Schäfer",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Bauer",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Johansson",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Ferreira",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Costa",
+            "synonyms": []
+          }
+        }
+      ]
+    },
+    {
+      "name": "MEETING_ROOMS",
+      "values": [
+        {
+          "id": "",
+          "name": {
+            "value": "Terra",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Aqua",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Fire",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Air",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Garden",
+            "synonyms": []
+          }
+        }
+      ]
+    }
+  ]
+}
